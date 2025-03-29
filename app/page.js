@@ -3,13 +3,13 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      <header>
+      <header className="flex bg-gray-400">
         Our Header Section
       </header>
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+      <main className="flex bg-primary">
         Our Main Section
       </main>
-      <footer className="w-full row-start-3 flex gap-[24px] flex-wrap items-center justify-center bg-amber-400">
+      <footer className="flex bg-amber-400">
         Our New Footer
       </footer>
     </div>
