@@ -3,6 +3,7 @@ import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { MOVIES } from "@/lib/data";
+import Image from "next/image";
 
 export default function MoviesList() {
   return (
@@ -34,7 +35,7 @@ export default function MoviesList() {
                     height={450}
                     src={movie.poster || "./placeholder.svg"}
                     alt={movie.title}
-                    className="h-full w-full object-cover transition duration-300 hover:sclae-105"
+                    className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
                   />
                 </div>
               </Card>
