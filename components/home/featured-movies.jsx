@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import MoviesList from "./movies-list";
 
 export default function FeaturedMovies() {
   return (
@@ -10,10 +11,10 @@ export default function FeaturedMovies() {
             Explore the latest and greatest movies in the Cinescope
           </p>
         </div>
-        <button variant="outline">View All</button>
+        <Button variant="outline">View All</Button>
       </div>
 
-      {/*Movies list*/}
+      <MoviesList />
     </section>
   );
 }
