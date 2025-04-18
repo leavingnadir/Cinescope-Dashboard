@@ -1,9 +1,8 @@
-import HeaderNav from "@/components/header-nav"; //alias import
+import HeaderNav from "@/components/header-nav";
 import FeaturedMovies from "@/components/home/featured-movies";
 import HeroBanner from "@/components/home/hero-banner";
-import Image from "next/image";
 
-//SSR Server Side Rendering
+// SSR - Server Side Rendered - Server Component
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -12,7 +11,7 @@ export default function Home() {
         <HeroBanner />
         <FeaturedMovies />
       </main>
-      <footer className="bg-amber-400 h-72">Our New Footer</footer>
+      <footer className="bg-amber-400 h-72">Footer Section</footer>
     </div>
   );
 }
