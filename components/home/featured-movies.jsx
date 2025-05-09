@@ -1,8 +1,6 @@
 import { Button } from "@/components/ui/button";
 import MoviesList from "./movies-list";
 import { Suspense } from "react";
-import { Search } from "lucide-react";
-import { Input } from "@/components/ui/input";
 
 export default function FeaturedMovies() {
   return (
