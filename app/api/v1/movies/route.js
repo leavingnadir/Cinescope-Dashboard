@@ -1,4 +1,4 @@
-import { MOVIES } from "@/lib/data";
+import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 
 // Our first GET API route
@@ -8,7 +8,18 @@ export const GET = async () => {
     // Metacritic: Sorts the results in descending order based on the 'metacritic' field.
     // A value of -1 indicates descending order, while 1 would indicate ascending order.
 
-    return NextResponse.json(MOVIES, { status: 200 });
+    const movies = await db
+      .collection("movies")
+      .find({})
+      .sort({ metacritic: -1 })
+      .limit(20)
+      .toArray()
+      .catch((error) => {
+        console.error("Error fetching movies from database:", error);
+        return [];
+      });
+
+    return NextResponse.json(movies);
   } catch (error) {
     console.log("Error fetching movies:", error);
 
