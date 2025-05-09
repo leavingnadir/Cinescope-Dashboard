@@ -1,7 +1,7 @@
 import { MOVIES } from "@/lib/data";
 import { NextResponse } from "next/server";
 
-//our first GET API route
+//our first GET API
 export const GET = async () => {
   try {
     // const res = await fetch{''};
