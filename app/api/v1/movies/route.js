@@ -12,7 +12,7 @@ export const GET = async () => {
       .collection("movies")
       .find({})
       .sort({ metacritic: -1 })
-      .limit(20)
+      .limit(32)
       .toArray()
       .catch((error) => {
         console.error("Error fetching movies from database:", error);
