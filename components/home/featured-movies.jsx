@@ -1,5 +1,8 @@
 import { Button } from "@/components/ui/button";
 import MoviesList from "./movies-list";
+import { Suspense } from "react";
+import { Search } from "lucide-react";
+import { Input } from "@/components/ui/input";
 
 export default function FeaturedMovies() {
   return (
@@ -14,7 +17,11 @@ export default function FeaturedMovies() {
         <Button variant="outline">View All</Button>
       </div>
 
-      <MoviesList />
+      <Suspense
+        fallback={<div className="h-96 animate-pulse rounded-lg bg-muted" />}
+      >
+        <MoviesList />
+      </Suspense>
     </section>
   );
 }

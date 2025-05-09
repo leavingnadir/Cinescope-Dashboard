@@ -4,8 +4,16 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { MOVIES } from "@/lib/data";
 import Image from "next/image";
+import { getMovies } from "@/actions/movies";
 
-export default function MoviesList() {
+export default async function MoviesList() {
+  const movies = await getMovies();
+  if (!movies) {
+    return <div> No movies found</div>;
+  }
+
+  console.log("Movies:", movies);
+
   return (
     <div className="space-y-6">
       <div className="border-primary/20 bg-card shadow-xs rounded-lg border p-4">
