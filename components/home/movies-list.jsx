@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { getMovies } from "@/actions/movies";
 
 // import { MOVIES } from "@/lib/data";

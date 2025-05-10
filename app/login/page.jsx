@@ -1,6 +1,7 @@
-import LoginForm from "./login-form";
+// This is a server component
+import { LoginForm } from "./login-form";
 
-//Server components SSR
+// This uses SSR
 export default function LoginPage() {
   return (
     <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
