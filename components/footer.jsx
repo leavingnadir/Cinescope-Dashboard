@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="flex items-center gap-2">
           <Logo className="h-6 w-6" />
           <p className="text-muted-foreground text-center text-sm leading-loose md:text-left">
-            © 2023 CineScope. All rights reserved.
+            © 2025 CineScope. All rights reserved.
           </p>
         </div>
         <div className="flex items-center gap-4">
