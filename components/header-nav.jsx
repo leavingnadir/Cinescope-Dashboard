@@ -14,31 +14,31 @@ export default function HeaderNav() {
         <nav className="ml-auto flex items-center gap-4">
           <Link
             href="/"
-            className="hover:text-primary text-sm font-medium transition-colors"
+            className="hover:text-primary text-sm font-bold transition-colors"
           >
             Movies
           </Link>
           <Link
             href="/genres"
-            className="hover:text-primary text-sm font-medium transition-colors"
+            className="hover:text-primary text-sm font-bold transition-colors"
           >
             Genres
           </Link>
           <Link
             href="/about"
-            className="hover:text-primary text-sm font-medium transition-colors"
+            className="hover:text-primary text-sm font-bold transition-colors"
           >
             About
           </Link>
           <Link
             href="/admin"
-            className="hover:text-primary text-sm font-medium transition-colors"
+            className="hover:text-primary text-sm font-bold transition-colors"
           >
             Admin
           </Link>
           <Link
             href="/login"
-            className="hover:text-primary text-sm font-medium transition-colors"
+            className="hover:text-primary text-sm font-bold transition-colors"
           >
             Login
           </Link>
