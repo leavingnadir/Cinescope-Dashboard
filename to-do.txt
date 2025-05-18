@@ -1,5 +1,5 @@
-1.Create Dark Mode
-2.How to import custom font
+1. Create Dark Mode
+2. How to import custom font
 3. Create Movie Page
 4. Create Genre Page
 5. Change Favicon in Header
