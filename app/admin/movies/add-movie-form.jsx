@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   Select,
   SelectContent,
@@ -12,31 +13,83 @@ import { DialogFooter } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { createMovie } from "@/actions/movies";
 
 export function AddMovieForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const title = formData.get("title");
+    const year = formData.get("year");
+    const director = formData.get("director");
+    const genre = formData.get("genre");
+    const rating = formData.get("rating");
+    const runtime = formData.get("runtime");
+    const overview = formData.get("overview");
+    const poster = formData.get("poster");
+    const backdrop = formData.get("backdrop");
+    const movieStatus = formData.get("status");
+
+    console.log("Form Data", {
+      title,
+      year,
+      director,
+      genre,
+      rating,
+      runtime,
+      overview,
+      poster,
+      backdrop,
+      status: movieStatus,
+    });
+
+    setIsSubmitting(true);
+
+    const response = await createMovie({
+      title,
+      year,
+      directors: [director],
+      genres: [genre],
+      imdb: { rating: Number(rating) },
+      runtime,
+      plot: overview,
+      poster,
+      backdrop,
+      status: movieStatus,
+      lastupdated: new Date().toISOString(),
+    });
+
+    setIsSubmitting(false);
+
+    if (response?.success) {
+      console.log(response);
+    }
+  };
+
   return (
-    <form className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label htmlFor="title">Title</Label>
           <Input id="title" name="title" placeholder="Movie title" required />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="title">Year</Label>
+          <Label htmlFor="year">Year</Label>
           <Select id="year" name="year" required>
             <SelectTrigger className="w-full">
-              <SelectValue placeholder="Select Year" />
+              <SelectValue placeholder="Select year" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="2025">2025</SelectItem>
               <SelectItem value="2024">2024</SelectItem>
               <SelectItem value="2023">2023</SelectItem>
+              <SelectItem value="2012">2012</SelectItem>
             </SelectContent>
           </Select>
         </div>
-      </div>
 
-      <div className="grid grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label htmlFor="director">Director</Label>
           <Input id="director" name="director" placeholder="Director name" />
@@ -51,12 +104,12 @@ export function AddMovieForm() {
               <SelectItem value="Action">Action</SelectItem>
               <SelectItem value="Adventure">Adventure</SelectItem>
               <SelectItem value="Sci-Fi">Sci-Fi</SelectItem>
+              <SelectItem value="Comedy">Comedy</SelectItem>
+              <SelectItem value="Crime">Crime</SelectItem>
             </SelectContent>
           </Select>
         </div>
-      </div>
 
-      <div className="grid grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label htmlFor="rating">Rating</Label>
           <Input
@@ -71,7 +124,7 @@ export function AddMovieForm() {
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="runtime">Runtime (Minutes)</Label>
+          <Label htmlFor="runtime">Runtime (minutes)</Label>
           <Input
             id="runtime"
             name="runtime"
@@ -131,8 +184,8 @@ export function AddMovieForm() {
         <Button type="button" variant="outline" className="min-w-[102px]">
           Cancel
         </Button>
-        <Button type="submit" className="min-w-[102px]">
-          Add
+        <Button type="submit" className="min-w-[102px]" disabled={isSubmitting}>
+          {isSubmitting ? "Adding..." : "Add Movie"}
         </Button>
       </DialogFooter>
     </form>
