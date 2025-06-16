@@ -1,9 +1,12 @@
+import { getMovieById } from "@/actions/movies";
+import MovieLoading from "./movie-loading";
+
 // Server Component
 export default async function MovieDetailsPage(props) {
-    const { id } = await props.params;
+  const { id } = await props.params;
   // const searchParams = await props.searchParams;
   const movie = await getMovieById(id);
- 
+
   return (
     <main className="flex flex-col justify-center py-16 px-4 mx-auto">
       <h1 className="font-bold text-center text-xl text-amber-600">
@@ -19,6 +22,6 @@ export default async function MovieDetailsPage(props) {
   );
 }
 
-// /movie/:id - React Router Route ParameterAdd commentMore actions
+// /movie/:id - React Router Route Parameter
 // /movie/[id] - Next.js App Router Route Parameter
 // /movie/[...id]
