@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { signOut } from "@/lib/auth-client";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 
 export default function UserNav() {
   const handleLogout = async () => {
@@ -51,11 +52,17 @@ export default function UserNav() {
         <DropdownMenuGroup>
           <DropdownMenuItem>
             <User className="mr-2 h-4 w-4 text-primary" />
-            <span>Profile</span>
+            <Link
+            href="/admin/profile">
+            Profile
+          </Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <Settings className="mr-2 h-4 w-4 text-primary" />
-            <span>Settings</span>
+            <Link
+            href="/admin/settings">
+            Settings
+          </Link>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
