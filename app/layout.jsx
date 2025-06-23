@@ -3,7 +3,7 @@ import { inter } from "./fonts";
 import "./globals.css";
 
 export const metadata = {
-  title: "CineScope Movies Database - BO3",
+  title: "CineScope Movies Database",
   description: "Find your favorite movie ratings and recommendations",
 };
 
